@@ -14,7 +14,10 @@ builder.Services.AddDbContext<AppDataContext>(
 builder.Services.AddDbContext<AppSecurityContext>(
     options => options.UseInMemoryDatabase("SecurityDB")
 );
+builder.Services.AddAuthorization();
 
+builder.Services.AddIdentityApiEndpoints<IdentityUser>()
+   .AddEntityFrameworkStores<AppSecurityContext>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -23,6 +26,7 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+app.MapIdentityApi<IdentityUser>();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
