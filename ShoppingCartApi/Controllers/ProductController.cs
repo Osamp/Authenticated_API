@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IdentityAPI.Controllers;
 
-[Authorize]
+// [Authorize]
 [ApiController]
 [Route("[controller]")]
 public class ProductController : ControllerBase
@@ -38,7 +38,7 @@ public class ProductController : ControllerBase
     }
 
      // POST: api/ShoppingCart/{id}
-    [HttpPost("{id}")]
+    [HttpPost("remove/{id}")]
     public async Task<IActionResult> RemoveItem(int id)
     {
         var item = await  _dbData.Products.FindAsync(id);
@@ -55,7 +55,7 @@ public class ProductController : ControllerBase
     }
           
 
- [HttpPost("{id}")]
+ [HttpPost("{id}/add")]
     public async Task<IActionResult> AddItem(int id)
     {
         var product = await _dbData.Products.FindAsync(id);
