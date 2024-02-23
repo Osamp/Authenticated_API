@@ -2,8 +2,8 @@
 
 using System.Collections.Generic;
 
-namespace ClassLibraryProject
-{
+namespace ClassLibraryProject;
+
     public class ShoppingCart
     {
         public int Id { get; set; }
@@ -15,4 +15,4 @@ namespace ClassLibraryProject
             Products = new List<Product>();
         }
     }
-}
+

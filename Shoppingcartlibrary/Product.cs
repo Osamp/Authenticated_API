@@ -8,6 +8,6 @@ namespace ClassLibraryProject
         public decimal Price { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public Category Category { get; set; } // Adding Category propert
+        public Category Category { get; set; } // Adding Category property
     }
 }
